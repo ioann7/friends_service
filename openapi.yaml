@@ -452,7 +452,7 @@ components:
             - есть входящая заявка
             - уже друзья
           readOnly: true
-          description: "Статус дружбы"
+          description: "Статус дружбы относительно пользователя от которого запрос"
           example: нет ничего
       required:
         - username
