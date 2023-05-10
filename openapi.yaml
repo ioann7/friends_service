@@ -256,6 +256,8 @@ paths:
                 $ref: '#/components/schemas/SelfMadeError'
         '401':
           $ref: '#/components/responses/AuthenticationError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
         '404':
           $ref: '#/components/responses/NotFound'
 
@@ -520,6 +522,15 @@ components:
           example: "Учетные данные не были предоставлены."
           type: string
 
+    ForbiddenError:
+      description: Недостаточно прав
+      type: object
+      properties:
+        detail:
+          description: 'Описание ошибки'
+          example: "Недостаточно прав."
+          type: string
+
     NotFound:
       description: Объект не найден
       type: object
@@ -543,6 +554,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/AuthenticationError'
+
+    ForbiddenError:
+      description: Недостаточно прав
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ForbiddenError'
 
     NotFound:
       description: Объект не найден
